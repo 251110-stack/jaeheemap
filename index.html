@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aero Map Explorer</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5f28be17bb21d8f7ee4ad8cedadc9f89&libraries=services"></script>
+    <style>
+        /* 프루티거 에어로 스타일링 */
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.4);
+            --aero-blue: #00a8ff;
+            --aero-green: #4cd137;
+            --text-color: #2f3640;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 50%, #e8f5e9 100%);
+        }
+
+        #container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* 왼쪽 사이드바 (검색창 + 리스트) */
+        #sidebar {
+            width: 350px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px); /* 유리 효과 */
+            border-right: 1px solid rgba(255, 255, 255, 0.6);
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-header {
+            padding: 30px 20px;
+            background: linear-gradient(to bottom, rgba(0, 168, 255, 0.2), transparent);
+        }
+
+        h2 {
+            color: var(--aero-blue);
+            text-shadow: 1px 1px 2px white;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05);
+            outline: none;
+        }
+
+        button {
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: none;
+            background: linear-gradient(to bottom, #4cd137, #44bd32);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(76, 209, 55, 0.3);
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
